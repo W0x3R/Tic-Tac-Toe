@@ -55,15 +55,22 @@ body {
 			color: #be0101;
 			text-transform: uppercase;
 			transition: 0.3s;
+			&:active {
+				border: 2px solid #fff;
+				border-radius: 2%;
+				color: #ff0000;
+				background-color: rgb(255 255 255 / 25%);
+			}
 
 			@media screen and (max-width: 680px) {
 				width: 100px;
 				height: 100px;
 			}
+
 			@media (hover: hover) {
 				&:hover {
 					border: 2px solid #fff;
-					border-radius: 5%;
+					border-radius: 2%;
 					color: #ff0000;
 					background-color: rgb(255 255 255 / 25%);
 				}
@@ -72,10 +79,11 @@ body {
 	}
 }
 
-.footer {
-	&__table {
-		font-size: clamp(22px, 5vw, 35px);
-		color: white;
-		user-select: none;
+.table {
+	font-size: clamp(22px, 5vw, 35px);
+	color: white;
+	user-select: none;
+	&__score_active {
+		color: rgb(62 166 162 / 82%);
 	}
 }
