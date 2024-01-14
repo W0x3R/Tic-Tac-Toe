@@ -9,7 +9,7 @@ body {
 .container {
 	@include flexBox(column, center, center);
 	max-width: 1920px;
-	min-height: 100vh;
+	min-height: 100%;
 	margin: 0 auto;
 	padding: 20px 10px;
 }
