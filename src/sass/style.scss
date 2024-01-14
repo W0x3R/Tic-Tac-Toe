@@ -72,14 +72,13 @@ body {
 
 .main__button {
 	@include width-height(150px, 40px);
-	margin-bottom: 10px;
 	background-color: rgba(255, 255, 255, 0.77);
 	color: black;
 	border: 2px solid black;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.3s;
-	font-size: 20px;
+	font-size: clamp(16px, 3vw, 20px);
 
 	@media (hover: hover) {
 		&:hover {
