@@ -64,6 +64,9 @@ body {
 
 			&_win {
 				background-color: #18c41885;
+				&:hover {
+					background-color: #23a92385;
+				}
 			}
 		}
 	}

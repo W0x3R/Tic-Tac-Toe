@@ -1,7 +1,5 @@
 const square = document.querySelector('.main__square');
 const squareElements = document.querySelectorAll('.main__square-item')
-const firstPlayer = document.querySelector('.footer__title_null');
-const secondPlayer = document.querySelector('.footer__title_crosses')
 const res = document.querySelector('.main__res')
 const newGameButton = document.querySelector('.main__button')
 
@@ -50,7 +48,7 @@ function showWin() {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-item_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-item_win')
 				squareElements[comboOfWin[i][2]].classList.add('main__square-item_win')
-				res.textContent = 'X WINS'
+				res.textContent = 'X WIN'
 			}, 250)
 		}
 		else if (squareElements[comboOfWin[i][0]].classList.contains('o') && squareElements[comboOfWin[i][1]].classList.contains('o') && squareElements[comboOfWin[i][2]].classList.contains('o')) {
