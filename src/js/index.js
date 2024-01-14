@@ -9,7 +9,7 @@ function cross(target) {
 	if (count % 2 === 0 && target.textContent === '') {
 		target.textContent = '◯'
 		target.classList.add('o')
-		count++
+		++count
 	}
 }
 
@@ -17,7 +17,7 @@ function zero(target) {
 	if (count % 2 !== 0 && target.textContent === '') {
 		target.textContent = '✕'
 		target.classList.add('x')
-		count++
+		++count
 	}
 }
 
@@ -43,6 +43,7 @@ function showWin() {
 
 	for (let i = 0; i < comboOfWin.length; i++) {
 		if (squareElements[comboOfWin[i][0]].classList.contains('x') && squareElements[comboOfWin[i][1]].classList.contains('x') && squareElements[comboOfWin[i][2]].classList.contains('x')) {
+			count = 0;
 			square.removeEventListener('click', init)
 			setTimeout(() => {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-item_win')
@@ -52,6 +53,7 @@ function showWin() {
 			}, 250)
 		}
 		else if (squareElements[comboOfWin[i][0]].classList.contains('o') && squareElements[comboOfWin[i][1]].classList.contains('o') && squareElements[comboOfWin[i][2]].classList.contains('o')) {
+			count = 0;
 			square.removeEventListener('click', init)
 			setTimeout(() => {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-item_win')
@@ -59,11 +61,11 @@ function showWin() {
 				squareElements[comboOfWin[i][2]].classList.add('main__square-item_win')
 				res.textContent = '0 WIN'
 			}, 250)
-
 		}
 		else if (count === 9) {
 			res.textContent = 'GAME DRAW'
 			square.removeEventListener('click', init)
+
 		}
 	}
 }
@@ -80,3 +82,7 @@ function newGame() {
 
 newGameButton.addEventListener('click', newGame)
 
+
+setInterval(() => {
+	console.log(count)
+}, 500)
