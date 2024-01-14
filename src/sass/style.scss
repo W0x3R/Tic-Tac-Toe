@@ -3,35 +3,17 @@
 body {
 	background-image: url('../images/1.jpg');
 	background-size: cover;
+	height: 100%;
 }
 
 .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 25px;
 	max-width: 1920px;
 	margin: 0 auto;
-	padding: 10px;
-}
-
-.header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.header__title {
-	margin-top: 0;
-	margin-bottom: 10px;
-	font-size: clamp(22px, 5vw, 35px);
-	transition: 0.3s;
-	color: #ffffff;
-	@media (hover: hover) {
-		&:hover {
-			color: #cdcbcb;
-		}
-	}
+	padding: 20px 10px;
+	min-height: 100vh;
 }
 
 .main {
@@ -39,13 +21,29 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	flex: 1;
+	gap: 20px;
+
+	&__res {
+		display: flex;
+		height: 50px;
+		color: white;
+		font-size: clamp(26px, 4vw, 38px);
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		animation-name: changeColor;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+	}
+
 	&__square {
 		display: flex;
 		flex-wrap: wrap;
 		margin-bottom: 20px;
 		width: 405px;
 		height: 405px;
-		background-color: rgb(62 166 162 / 82%);
+		background-color: rgb(233 233 233 / 77%);
 		cursor: pointer;
 
 		@media screen and (max-width: 680px) {
@@ -60,16 +58,17 @@ body {
 			width: 135px;
 			height: 135px;
 			box-sizing: border-box;
-			font-size: 100px;
+			font-size: clamp(90px, 15vw, 105px);
 			border: 1px solid #000;
-			color: #fff;
+			color: #000;
 			text-transform: uppercase;
 			transition: 0.3s;
+
 			&:active {
-				border: 2px solid #fff;
+				border: 2px solid #000;
 				border-radius: 2%;
-				color: #ff0000;
-				background-color: rgb(255 255 255 / 25%);
+				color: rgb(68, 67, 67);
+				background-color: rgb(255 255 255 / 88%);
 			}
 
 			@media screen and (max-width: 680px) {
@@ -81,31 +80,62 @@ body {
 				&:hover {
 					border: 2px solid #fff;
 					border-radius: 2%;
-					color: rgb(208, 204, 204);
+					color: rgb(68, 67, 67);
+					background-color: rgb(255 255 255 / 88%);
 				}
 			}
+
 			&_win {
-				background-color: green;
+				background-color: #18c41885;
 			}
 		}
 	}
 }
 
-.table {
-	font-size: clamp(22px, 5vw, 35px);
-	color: white;
-	user-select: none;
-	&__score_active {
-		color: rgb(62 166 162 / 82%);
+.main__button {
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.77);
+	color: black;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 150px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 20px;
+
+	&:active {
+		background-color: rgb(255, 255, 255);
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: rgb(255, 255, 255);
+		}
 	}
 }
 
-.main__button {
-	text-align: center;
+@keyframes changeColor {
+	0% {
+		color: #ffffff;
+	}
+	50% {
+		color: #6600ff00;
+	}
+	100% {
+		color: #ffffff;
+	}
 }
 
-.res {
-	height: 50px;
-	color: white;
-	font-size: 30px;
+.footer__title {
+	margin-top: 0;
+	font-size: clamp(22px, 5vw, 35px);
+	transition: 0.3s;
+	color: #ffffff;
+
+	@media (hover: hover) {
+		&:hover {
+			color: #e2dcdc;
+		}
+	}
 }
