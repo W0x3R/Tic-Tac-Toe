@@ -1,5 +1,5 @@
 @import 'normalize';
-
+@import 'mixins';
 body {
 	background-image: url('../images/1.jpg');
 	background-size: cover;
@@ -7,57 +7,39 @@ body {
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	@include flexBox(column, center);
 	max-width: 1920px;
+	min-height: 100vh;
 	margin: 0 auto;
 	padding: 20px 10px;
-	min-height: 100vh;
 }
 
 .main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	@include flexBox(column, center, center);
 	justify-content: center;
 	flex: 1;
 	gap: 20px;
 
 	&__res {
-		display: flex;
+		@include flexBox(column, center, center);
 		height: 50px;
 		color: white;
 		font-size: clamp(26px, 4vw, 38px);
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		animation-name: changeColor;
 		animation-duration: 1.5s;
 		animation-iteration-count: infinite;
 	}
 
 	&__square {
-		display: flex;
-		flex-wrap: wrap;
+		@include flexBox(row, normal, normal, wrap);
+		@include width-height(405px, 405px);
 		margin-bottom: 20px;
-		width: 405px;
-		height: 405px;
 		background-color: rgb(233 233 233 / 77%);
 		cursor: pointer;
 
-		@media screen and (max-width: 680px) {
-			width: 300px;
-			height: 300px;
-		}
-
 		&-item {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 135px;
-			height: 135px;
-			box-sizing: border-box;
+			@include flexBox(row, center, center);
+			@include width-height(135px, 135px);
 			font-size: clamp(90px, 15vw, 105px);
 			border: 1px solid #000;
 			color: #000;
@@ -71,20 +53,6 @@ body {
 				background-color: rgb(255 255 255 / 88%);
 			}
 
-			@media screen and (max-width: 680px) {
-				width: 100px;
-				height: 100px;
-			}
-
-			@media (hover: hover) {
-				&:hover {
-					border: 2px solid #fff;
-					border-radius: 2%;
-					color: rgb(68, 67, 67);
-					background-color: rgb(255 255 255 / 88%);
-				}
-			}
-
 			&_win {
 				background-color: #18c41885;
 			}
@@ -93,25 +61,18 @@ body {
 }
 
 .main__button {
-	height: 40px;
+	@include width-height(150px, 40px);
+	margin-bottom: 10px;
 	background-color: rgba(255, 255, 255, 0.77);
 	color: black;
 	border: 2px solid black;
 	border-radius: 5px;
-	width: 150px;
-	margin-bottom: 10px;
 	cursor: pointer;
 	transition: 0.3s;
 	font-size: 20px;
 
 	&:active {
 		background-color: rgb(255, 255, 255);
-	}
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: rgb(255, 255, 255);
-		}
 	}
 }
 
@@ -132,10 +93,6 @@ body {
 	font-size: clamp(22px, 5vw, 35px);
 	transition: 0.3s;
 	color: #ffffff;
-
-	@media (hover: hover) {
-		&:hover {
-			color: #e2dcdc;
-		}
-	}
 }
+
+@import 'adaptive';

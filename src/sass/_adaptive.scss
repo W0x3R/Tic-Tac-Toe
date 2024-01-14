@@ -1,0 +1,38 @@
+.main {
+	&__square {
+		@media screen and (max-width: 680px) {
+			@include width-height(300px, 300px);
+
+			&-item {
+				@media screen and (max-width: 680px) {
+					@include width-height(100px, 100px);
+				}
+
+				@media (hover: hover) {
+					&:hover {
+						border: 2px solid #fff;
+						border-radius: 2%;
+						color: rgb(68, 67, 67);
+						background-color: rgb(255 255 255 / 88%);
+					}
+				}
+			}
+		}
+	}
+
+	&__button {
+		@media (hover: hover) {
+			&:hover {
+				background-color: rgb(255, 255, 255);
+			}
+		}
+	}
+}
+
+.footer__title {
+	@media (hover: hover) {
+		&:hover {
+			color: #e2dcdc;
+		}
+	}
+}
