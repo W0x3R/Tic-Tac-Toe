@@ -4,6 +4,8 @@ body {
 	background-image: url('../images/1.jpg');
 	background-size: cover;
 	height: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -104,7 +106,7 @@ body {
 }
 
 .main__title {
-	font-size: clamp(26px, 6vw, 35px);
+	font-size: clamp(30px, 6vw, 45px);
 	-webkit-transition: 0.3s;
 	transition: 0.3s;
 	color: #ffffff;
