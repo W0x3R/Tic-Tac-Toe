@@ -7,7 +7,7 @@ let count = 0;
 
 function cross(target) {
 	if (count % 2 === 0 && target.textContent === '') {
-		target.textContent = '◯'
+		target.textContent = 'o'
 		target.classList.add('o')
 		++count
 	}
@@ -15,7 +15,7 @@ function cross(target) {
 
 function zero(target) {
 	if (count % 2 !== 0 && target.textContent === '') {
-		target.textContent = '✕'
+		target.textContent = 'x'
 		target.classList.add('x')
 		++count
 	}
