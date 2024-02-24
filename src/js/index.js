@@ -26,6 +26,7 @@ function init(e) {
 	zero(e.target)
 	showWin()
 }
+console.log(count);
 
 square.addEventListener('click', init)
 
@@ -63,8 +64,11 @@ function showWin() {
 			}, 250)
 		}
 		else if (count === 9) {
-			res.textContent = 'GAME DRAW'
 			square.removeEventListener('click', init)
+			setTimeout(() => {
+				res.textContent = 'GAME DRAW'
+			}, 250)
+
 
 		}
 	}
