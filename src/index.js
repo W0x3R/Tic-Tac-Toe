@@ -1,3 +1,5 @@
+import './style.scss';
+
 const square = document.querySelector('.main__square');
 const squareElements = document.querySelectorAll('.main__square-item')
 const res = document.querySelector('.main__res')
