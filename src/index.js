@@ -11,7 +11,7 @@ const newGameButton = document.querySelector('.main__button')
 
 function zero(target) {
 	if (count % 2 === 0 && (target.children).length === 0) {
-		target.classList.add('o')
+		target.classList.add('main__square-naught')
 		circleDrawing(target)
 		incrementValue()
 		playDrawingSound()
@@ -20,7 +20,7 @@ function zero(target) {
 
 function cross(target) {
 	if (count % 2 !== 0 && (target.children).length === 0) {
-		target.classList.add('x')
+		target.classList.add('main__square-cross')
 		crossDrawing(target)
 		incrementValue()
 		playDrawingSound()
@@ -48,23 +48,23 @@ function showWin() {
 	]
 
 	for (let i = 0; i < comboOfWin.length; i++) {
-		if (squareElements[comboOfWin[i][0]].classList.contains('x') && squareElements[comboOfWin[i][1]].classList.contains('x') && squareElements[comboOfWin[i][2]].classList.contains('x')) {
+		if (squareElements[comboOfWin[i][0]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][1]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][2]].classList.contains('main__square-cross')) {
 			setCountValue(0)
 			square.removeEventListener('click', init)
 			setTimeout(() => {
-				squareElements[comboOfWin[i][0]].classList.add('main__square-item_win')
-				squareElements[comboOfWin[i][1]].classList.add('main__square-item_win')
-				squareElements[comboOfWin[i][2]].classList.add('main__square-item_win')
+				squareElements[comboOfWin[i][0]].classList.add('main__square-cross_win')
+				squareElements[comboOfWin[i][1]].classList.add('main__square-cross_win')
+				squareElements[comboOfWin[i][2]].classList.add('main__square-cross_win')
 				res.textContent = 'X WIN'
 			}, 250)
 		}
-		else if (squareElements[comboOfWin[i][0]].classList.contains('o') && squareElements[comboOfWin[i][1]].classList.contains('o') && squareElements[comboOfWin[i][2]].classList.contains('o')) {
+		else if (squareElements[comboOfWin[i][0]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][1]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][2]].classList.contains('main__square-naught')) {
 			setCountValue(0)
 			square.removeEventListener('click', init)
 			setTimeout(() => {
-				squareElements[comboOfWin[i][0]].classList.add('main__square-item_win')
-				squareElements[comboOfWin[i][1]].classList.add('main__square-item_win')
-				squareElements[comboOfWin[i][2]].classList.add('main__square-item_win')
+				squareElements[comboOfWin[i][0]].classList.add('main__square-naught_win')
+				squareElements[comboOfWin[i][1]].classList.add('main__square-naught_win')
+				squareElements[comboOfWin[i][2]].classList.add('main__square-naught_win')
 				res.textContent = '0 WIN'
 			}, 250)
 		}
@@ -83,7 +83,7 @@ function newGame() {
 	setCountValue(0)
 	squareElements.forEach(e => {
 		e.textContent = ''
-		e.classList.remove('x', 'o', 'main__square-item_win')
+		e.classList.remove('main__square-naught', 'main__square-cross', 'main__square-naught_win', 'main__square-cross_win')
 	})
 	res.textContent = ''
 	square.addEventListener('click', init)
