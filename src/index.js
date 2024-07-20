@@ -1,3 +1,5 @@
+import { circleDrawing } from './js/figureDrawing/circleDrawing';
+import { crossDrawing } from './js/figureDrawing/crossDrawing';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
 import './style.scss';
 
@@ -6,18 +8,18 @@ const squareElements = document.querySelectorAll('.main__square-item')
 const res = document.querySelector('.main__res')
 const newGameButton = document.querySelector('.main__button')
 
-function cross(target) {
-	if (count % 2 === 0 && target.textContent === '') {
-		target.textContent = 'o'
+function zero(target) {
+	if (count % 2 === 0 && (target.children).length === 0) {
 		target.classList.add('o')
+		circleDrawing(target)
 		incrementValue()
 	}
 }
 
-function zero(target) {
-	if (count % 2 !== 0 && target.textContent === '') {
-		target.textContent = 'x'
+function cross(target) {
+	if (count % 2 !== 0 && (target.children).length === 0) {
 		target.classList.add('x')
+		crossDrawing(target)
 		incrementValue()
 	}
 }
