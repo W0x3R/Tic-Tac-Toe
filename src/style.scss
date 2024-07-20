@@ -25,9 +25,7 @@ body {
 		height: 50px;
 		color: white;
 		font-size: clamp(26px, 4vw, 38px);
-		animation-name: changeColor;
-		animation-duration: 1.5s;
-		animation-iteration-count: infinite;
+		animation: changeColor 1.5s infinite;
 	}
 
 	&__square {
@@ -35,7 +33,7 @@ body {
 		@include width-height(405px, 405px);
 		margin-bottom: 20px;
 		background-color: rgb(233 233 233 / 77%);
-		cursor: pointer;
+		cursor: url('./images/svg/pencil.svg'), pointer;
 
 		&-item {
 			@include flexBox(row, center, center);
