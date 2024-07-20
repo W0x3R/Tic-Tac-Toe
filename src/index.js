@@ -1,5 +1,6 @@
 import { circleDrawing } from './js/figureDrawing/circleDrawing';
 import { crossDrawing } from './js/figureDrawing/crossDrawing';
+import { playDrawingSound } from './js/playDrawingSound';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
 import './style.scss';
 
@@ -13,6 +14,7 @@ function zero(target) {
 		target.classList.add('o')
 		circleDrawing(target)
 		incrementValue()
+		playDrawingSound()
 	}
 }
 
@@ -21,6 +23,7 @@ function cross(target) {
 		target.classList.add('x')
 		crossDrawing(target)
 		incrementValue()
+		playDrawingSound()
 	}
 }
 
