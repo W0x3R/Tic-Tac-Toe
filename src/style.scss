@@ -118,11 +118,11 @@ body {
 	}
 }
 .animated-circle {
-	transition: stroke-dashoffset 1s;
+	transition: stroke-dashoffset 0.8s;
 }
 
 .animated-cross {
-	transition: stroke-dashoffset 1s;
+	transition: stroke-dashoffset 0.8s;
 }
 
 @import './scss/adaptive';
