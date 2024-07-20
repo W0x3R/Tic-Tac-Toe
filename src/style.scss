@@ -105,16 +105,12 @@ body {
 }
 
 .main__title {
-	font-size: clamp(27px, 6vw, 45px);
-	transition: 0.3s;
+	font-size: clamp(27px, 6vw, 38px);
 	color: #ffffff;
+	pointer-events: none;
+	user-select: none;
 }
 
-@media (hover: hover) {
-	.main__title:hover {
-		color: #e2dcdc;
-	}
-}
 .animated-circle {
 	transition: stroke-dashoffset 0.8s;
 }
