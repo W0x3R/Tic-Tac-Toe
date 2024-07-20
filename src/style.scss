@@ -1,5 +1,6 @@
 @import './scss/normalize';
 @import './scss/mixins';
+@import './scss/media';
 
 body {
 	background-color: #12181b;
@@ -40,24 +41,12 @@ body {
 			@include width-height(135px, 135px);
 			font-size: clamp(90px, 15vw, 105px);
 			border: 1px solid #000;
-			color: #000;
 			text-transform: uppercase;
 			transition: 0.3s;
 
-			@media (hover: hover) {
-				&:hover {
-					border: 2px solid #fff;
-					border-radius: 2%;
-					color: rgb(68, 67, 67);
-					background-color: rgb(255 255 255 / 88%);
-				}
-			}
-
-			&:active {
-				border: 2px solid #000;
-				border-radius: 2%;
-				color: rgb(68, 67, 67);
-				background-color: rgb(255 255 255 / 88%);
+			@include hoverOrActive {
+				border: 2px solid #fff;
+				background-color: rgba(216, 216, 216, 0.88);
 			}
 
 			&_win {
