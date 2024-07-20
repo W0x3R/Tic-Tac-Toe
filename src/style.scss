@@ -117,5 +117,12 @@ body {
 		color: #e2dcdc;
 	}
 }
+.animated-circle {
+	transition: stroke-dashoffset 1s;
+}
+
+.animated-cross {
+	transition: stroke-dashoffset 1s;
+}
 
 @import './scss/adaptive';
