@@ -32,7 +32,6 @@ body {
 		@include flexBox(row, normal, normal, wrap);
 		@include width-height(405px, 405px);
 		margin-bottom: 20px;
-		background-color: rgb(233 233 233 / 77%);
 		cursor: url('./images/svg/pencil.svg'), pointer;
 
 		&-item {
