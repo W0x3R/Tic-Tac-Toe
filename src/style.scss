@@ -62,10 +62,10 @@ body {
 			}
 		}
 		&-naught_win ,&-cross_win{
-			background-color: #18c41885;
+			background-color: rgb(1 58 85 / 62%);
 
 			@include hoverOrActive {
-				background-color: #18c41885;
+				background-color: rgb(1 58 85 / 62%);
 			}
 		}
 	}
