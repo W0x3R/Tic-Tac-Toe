@@ -21,12 +21,11 @@ body {
 	@include flexBox(column, center, center);
 	gap: 8px;
 
-	&__res {
+	.res {
 		@include flexBox(column, center, center);
 		height: 50px;
 		color: white;
 		font-size: clamp(26px, 4vw, 38px);
-		animation: changeColor 1.5s infinite;
 	}
 
 	&__square {
