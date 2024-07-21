@@ -10,7 +10,7 @@ export const circleDrawing = (target) => {
 	circle.setAttribute("cx", "100");
 	circle.setAttribute("cy", "100");
 	circle.setAttribute("r", "90");
-	circle.setAttribute("stroke", "#a21126");
+	circle.setAttribute("stroke", "rgb(228 10 41)");
 	circle.setAttribute("stroke-width", "10");
 	circle.setAttribute("fill", "none");
 	circle.setAttribute("stroke-dasharray", "565.48");

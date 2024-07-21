@@ -11,7 +11,7 @@ export const crossDrawing = (target) => {
 	line1.setAttribute("y1", "15");
 	line1.setAttribute("x2", "180");
 	line1.setAttribute("y2", "180");
-	line1.setAttribute("stroke", "#1114a2");
+	line1.setAttribute("stroke", "rgb(15 18 198)");
 	line1.setAttribute("stroke-width", "8");
 	line1.setAttribute("stroke-dasharray", "232.38");
 	line1.setAttribute("stroke-dashoffset", "232.38");
@@ -22,7 +22,7 @@ export const crossDrawing = (target) => {
 	line2.setAttribute("y1", "15");
 	line2.setAttribute("x2", "15");
 	line2.setAttribute("y2", "180");
-	line2.setAttribute("stroke", "#1114a2");
+	line2.setAttribute("stroke", "rgb(15 18 198)");
 	line2.setAttribute("stroke-width", "10");
 	line2.setAttribute("stroke-dasharray", "232.38");
 	line2.setAttribute("stroke-dashoffset", "232.38");
