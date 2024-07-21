@@ -55,8 +55,6 @@ body {
 		}
 
 		&-naught,&-cross {
-	    border: 2px solid #000;
-    	background-color: rgb(0 24 31 / 88%);
 			cursor: not-allowed;
 
 			@include hoverOrActive {
