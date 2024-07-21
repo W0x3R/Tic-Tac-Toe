@@ -6,7 +6,7 @@ import './style.scss';
 
 const square = document.querySelector('.main__square');
 const squareElements = document.querySelectorAll('.main__square-item')
-const res = document.querySelector('.main__res')
+const res = document.querySelector('.res')
 const newGameButton = document.querySelector('.main__button')
 
 function zero(target) {
