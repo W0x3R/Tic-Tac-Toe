@@ -10,7 +10,7 @@ const res = document.querySelector('.res')
 const newGameButton = document.querySelector('.main__button')
 
 function zero(target) {
-	if (count % 2 === 0 && (target.children).length === 0) {
+	if (target.classList.contains('main__square-item') && count % 2 === 0 && (target.children).length === 0) {
 		target.classList.add('main__square-naught')
 		circleDrawing(target)
 		incrementValue()
@@ -19,7 +19,7 @@ function zero(target) {
 }
 
 function cross(target) {
-	if (count % 2 !== 0 && (target.children).length === 0) {
+	if (target.classList.contains('main__square-item') && count % 2 !== 0 && (target.children).length === 0) {
 		target.classList.add('main__square-cross')
 		crossDrawing(target)
 		incrementValue()
