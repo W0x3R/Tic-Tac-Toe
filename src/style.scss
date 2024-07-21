@@ -40,7 +40,7 @@ body {
 			@include flexBox(row, center, center);
 			@include width-height(135px, 135px);
 			font-size: clamp(90px, 15vw, 105px);
-			border: 1px solid #000;
+			border: 1px solid #d2d2d2;
 			text-transform: uppercase;
 			transition: 0.3s;
 
