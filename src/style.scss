@@ -50,10 +50,8 @@ body {
 			}
 
 			@include hoverOrActive {
-				border: 2px solid #fff;
-				background-color: rgba(216, 216, 216, 0.88);
+				background-color: rgb(255 255 255 / 9%);
 			}
-
 		}
 
 		&-naught,&-cross {
