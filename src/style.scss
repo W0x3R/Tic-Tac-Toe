@@ -61,6 +61,7 @@ body {
 		}
 		&-naught_win ,&-cross_win{
 			background-color: rgb(1 58 85 / 62%);
+animation: changeColor 1.5s infinite;
 
 			@include hoverOrActive {
 				background-color: rgb(1 58 85 / 62%);
