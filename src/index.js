@@ -7,6 +7,10 @@ import './style.scss';
 const square = document.querySelector('.main__square');
 const squareElements = document.querySelectorAll('.main__square-item')
 const res = document.querySelector('.res')
+const naughtsScoreElem = document.querySelector('.res__score-naughts')
+const crossesScoreElem = document.querySelector('.res__score-crosses')
+let naughtsScore = 0;
+let crossesScore = 0;
 const newGameButton = document.querySelector('.main__button')
 
 function zero(target) {
@@ -65,8 +69,8 @@ function showWin() {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-naught_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-naught_win')
 				squareElements[comboOfWin[i][2]].classList.add('main__square-naught_win')
-				
-				naughtsScoreElem.textContent = '0 WIN'
+
+				naughtsScoreElem.textContent = ++naughtsScore
 			}, 250)
 		}
 		else if (count === 9) {
@@ -86,7 +90,6 @@ function newGame() {
 		e.textContent = ''
 		e.classList.remove('main__square-naught', 'main__square-cross', 'main__square-naught_win', 'main__square-cross_win')
 	})
-	res.textContent = ''
 	square.addEventListener('click', init)
 }
 
