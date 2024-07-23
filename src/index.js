@@ -21,6 +21,8 @@ function zero(target) {
 		circleDrawing(target)
 		incrementValue()
 		playDrawingSound()
+		resCircle.classList.remove('res__circle_active')
+		resCross.classList.add('res__cross_active')
 	}
 }
 
@@ -30,6 +32,8 @@ function cross(target) {
 		crossDrawing(target)
 		incrementValue()
 		playDrawingSound()
+		resCircle.classList.add('res__circle_active')
+		resCross.classList.remove('res__cross_active')
 	}
 }
 
@@ -80,8 +84,6 @@ function showWin() {
 			setTimeout(() => {
 				res.textContent = 'GAME DRAW'
 			}, 250)
-
-
 		}
 	}
 }
@@ -93,6 +95,8 @@ function newGame() {
 		e.classList.remove('main__square-naught', 'main__square-cross', 'main__square-naught_win', 'main__square-cross_win')
 	})
 	square.addEventListener('click', init)
+	resCircle.classList.add('res__circle_active')
+	resCross.classList.remove('res__cross_active')
 }
 
 newGameButton.addEventListener('click', newGame)
