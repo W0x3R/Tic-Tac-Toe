@@ -7,6 +7,8 @@ import './style.scss';
 const square = document.querySelector('.main__square');
 const squareElements = document.querySelectorAll('.main__square-item')
 const res = document.querySelector('.res')
+const resCircle = document.querySelector('.res__circle')
+const resCross = document.querySelector('.res__cross')
 const naughtsScoreElem = document.querySelector('.res__score-naughts')
 const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
