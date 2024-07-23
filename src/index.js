@@ -55,7 +55,7 @@ function showWin() {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-cross_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-cross_win')
 				squareElements[comboOfWin[i][2]].classList.add('main__square-cross_win')
-				res.textContent = 'X WIN'
+				crossesScoreElem.textContent = ++crossesScore
 			}, 250)
 		}
 		else if (squareElements[comboOfWin[i][0]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][1]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][2]].classList.contains('main__square-naught')) {
@@ -65,7 +65,8 @@ function showWin() {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-naught_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-naught_win')
 				squareElements[comboOfWin[i][2]].classList.add('main__square-naught_win')
-				res.textContent = '0 WIN'
+				
+				naughtsScoreElem.textContent = '0 WIN'
 			}, 250)
 		}
 		else if (count === 9) {
