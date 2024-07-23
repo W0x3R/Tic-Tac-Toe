@@ -23,7 +23,10 @@ body {
 
 	.res {
 		@include flexBox(row,center, space-between);
+		margin-bottom: 10px;
 		width: 100%;
+    user-select: none;
+    pointer-events: none;
 		color: white;
 		font-size: clamp(26px, 4vw, 38px);
 
