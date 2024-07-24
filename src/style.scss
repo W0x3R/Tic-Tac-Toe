@@ -1,6 +1,7 @@
 @import './scss/normalize';
 @import './scss/mixins';
 @import './scss/media';
+@import './scss/template-selectors';
 
 body {
 	background-color: #12181b;
@@ -10,7 +11,8 @@ body {
 }
 
 .container {
-	@include flexBox(column, center, center);
+	@extend %flexCenter;
+	flex-direction: column;
 	max-width: 1920px;
 	min-height: 100%;
 	margin: 0 auto;
@@ -22,27 +24,28 @@ body {
 }
 
 .main {
-	@include flexBox(column, center, center);
+	@extend %flexCenter;
+	flex-direction: column;
 	gap: 22px;
 
 	.res {
-		@include flexBox(row,center, space-between);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		margin-bottom: 10px;
 		width: 100%;
-    user-select: none;
+		user-select: none;
     pointer-events: none;
-		color: white;
 		font-size: clamp(26px, 4vw, 38px);
+		color: white;
 
 		&__circle,&__cross {
-			width: 40px;
-			height: 40px;
+			box-sizing: content-box;
+			@include sizes(40px,40px);
 			padding: 2px;
-    box-sizing: content-box;
 
 		@include smallMobile {
-			width: 35px;
-			height: 35px;
+			@include sizes(35px,35px);
 		}
 	}
 
@@ -55,14 +58,12 @@ body {
 		}
 
 		&__cross_active {
-			border: 1px solid 	rgb(15 18 198);
+			border: 1px solid rgb(15 18 198);
 		}
 		
 		&__score {
-			display: flex;
+			@extend %flexCenter;
 			flex-direction: column;
-			align-items: center;
-    	justify-content: center;
 			gap: 5px 2px;
 			font-size: 34px;
 
@@ -87,30 +88,31 @@ body {
 	}
 
 	&__square {
-		@include flexBox(row, center, center, wrap);
-		@include width-height(405px, 405px);
+		@extend %flexCenter;
+		flex-wrap: wrap;
+		@include sizes(405px, 405px);
 		margin-bottom: 30px;
 		cursor: url('./images/svg/pencil.svg'), pointer;
 
 		@include mobile {
-			@include width-height(355px, 355px);
+			@include sizes(355px, 355px);
 		}
 
 		@include smallMobile {
-			@include width-height(285px, 285px);
+			@include sizes(285px, 285px);
 		}
 
 		&-item {
-			@include flexBox(row, center, center);
-			@include width-height(135px, 135px);
+			@extend %flexCenter;
+			@include sizes(135px, 135px);
 			transition: 0.3s;
 
 			@include mobile {
-				@include width-height(118px, 118px);
+				@include sizes(118px, 118px);
 			}
 
 			@include smallMobile {
-				@include width-height(95px, 95px);
+				@include sizes(95px, 95px);
 			}
 			
 			&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
@@ -123,6 +125,10 @@ body {
 
 			@include hoverOrActive {
 				background-color: rgb(255 255 255 / 9%);
+			}
+
+			& .animated-circle, .animated-cross{
+				transition: stroke-dashoffset 0.8s;
 			}
 		}
 
@@ -142,27 +148,26 @@ body {
 			}
 		}
 	}
-}
 
-.main__button {
-	@include width-height(150px, 40px);
-	background-color: rgba(255, 255, 255, 0.77);
-	color: black;
-	border: 2px solid black;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: 0.3s;
-	font-size: 20px;
-
-	@include smallMobile {
-		@include width-height(130px, 35px);
-		font-size: 16px;
+	&__button {
+		@include sizes(150px, 40px);
+		border: 2px solid black;
+		border-radius: 5px;
+		transition: 0.3s;
+		font-size: 20px;
+		cursor: pointer;
+		background-color: rgba(255, 255, 255, 0.77);
+		color: black;
+	
+		@include smallMobile {
+			@include sizes(130px, 35px);
+			font-size: 16px;
+		}
+	
+		@include hoverOrActive {
+			background-color: rgb(255, 255, 255);
+		}
 	}
-
-	@include hoverOrActive {
-		background-color: rgb(255, 255, 255);
-	}
-
 }
 
 @keyframes changeColor {
@@ -175,12 +180,4 @@ body {
 	100% {
     background-color: #12181b;
 	}
-}
-
-.animated-circle {
-	transition: stroke-dashoffset 0.8s;
-}
-
-.animated-cross {
-	transition: stroke-dashoffset 0.8s;
 }
