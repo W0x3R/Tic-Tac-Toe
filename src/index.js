@@ -2,6 +2,8 @@ import { circleDrawing } from './js/figureDrawing/circleDrawing';
 import { crossDrawing } from './js/figureDrawing/crossDrawing';
 import { playDrawingSound } from './js/playDrawingSound';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
+import { setResultText } from './js/setResultText';
+import { setResultTextVisibility } from './js/setResultTextVisibility';
 import './style.scss';
 
 const field = document.querySelector('.field');
@@ -69,6 +71,7 @@ function showWin() {
 				fieldItems[comboOfWin[i][1]].classList.add('field__cross_win')
 				fieldItems[comboOfWin[i][2]].classList.add('field__cross_win')
 				crossesScoreElem.textContent = ++crossesScore
+				setResultText('xWin')
 			}, 250)
 		}
 		else if (fieldItems[comboOfWin[i][0]].classList.contains('field__naught') && fieldItems[comboOfWin[i][1]].classList.contains('field__naught') && fieldItems[comboOfWin[i][2]].classList.contains('field__naught')) {
@@ -80,7 +83,7 @@ function showWin() {
 				fieldItems[comboOfWin[i][0]].classList.add('field__naught_win')
 				fieldItems[comboOfWin[i][1]].classList.add('field__naught_win')
 				fieldItems[comboOfWin[i][2]].classList.add('field__naught_win')
-
+				setResultText('oWin')
 				naughtsScoreElem.textContent = ++naughtsScore
 			}, 250)
 		}
@@ -89,7 +92,7 @@ function showWin() {
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
-				resScoreText.style.visibility = 'visible'
+				setResultText('draw')
 			}, 250)
 		}
 	}
@@ -104,6 +107,7 @@ function newGame() {
 	field.addEventListener('click', init)
 	resCircle.classList.add('res__circle_active')
 	resCross.classList.remove('res__cross_active')
+	setResultTextVisibility('remove')
 }
 
 newGameButton.addEventListener('click', newGame)
