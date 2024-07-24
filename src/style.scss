@@ -163,14 +163,6 @@ body {
 	}
 }
 
-.main__title {
-	margin-bottom: 15px;
-	font-size: clamp(26px, 6vw, 34px);
-	color: #ffffff;
-	pointer-events: none;
-	user-select: none;
-}
-
 .animated-circle {
 	transition: stroke-dashoffset 0.8s;
 }
