@@ -44,7 +44,7 @@ body {
 			width: 35px;
 			height: 35px;
 		}
-		}
+	}
 
 		&__circle_active,&__cross_active {
 			border-radius: 10%;
@@ -60,11 +60,21 @@ body {
 		
 		&__score {
 			display: flex;
-flex-direction: column;
+			flex-direction: column;
 			align-items: center;
     	justify-content: center;
 			gap: 0 2px;
 			font-size: 34px;
+
+			&-inner {
+				display: flex;
+			}
+
+			&-text {
+				display: none;
+				color:white;
+				font-size: 28px;
+			}
 
 			@include smallMobile {
 				font-size: 30px;
@@ -144,8 +154,6 @@ flex-direction: column;
 		@include width-height(130px, 35px);
 		font-size: 16px;
 	}
-
-
 
 	@include hoverOrActive {
 		background-color: rgb(255, 255, 255);
