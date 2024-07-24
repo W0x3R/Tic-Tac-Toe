@@ -4,8 +4,8 @@ import { playDrawingSound } from './js/playDrawingSound';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
 import './style.scss';
 
-const square = document.querySelector('.main__square');
-const squareElements = document.querySelectorAll('.main__square-item')
+const field = document.querySelector('.field');
+const fieldItems = document.querySelectorAll('.field__item')
 const res = document.querySelector('.res')
 const resCircle = document.querySelector('.res__circle')
 const resCross = document.querySelector('.res__cross')
@@ -13,12 +13,12 @@ const naughtsScoreElem = document.querySelector('.res__score-naughts')
 const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
-const newGameButton = document.querySelector('.main__button')
+const newGameButton = document.querySelector('.newgame__button')
 const resScoreText = document.querySelector('.res__score-text')
 
 function zero(target) {
-	if (target.classList.contains('main__square-item') && count % 2 === 0 && (target.children).length === 0) {
-		target.classList.add('main__square-naught')
+	if (target.classList.contains('field__item') && count % 2 === 0 && (target.children).length === 0) {
+		target.classList.add('field__naught')
 		circleDrawing(target)
 		incrementValue()
 		playDrawingSound()
@@ -28,8 +28,8 @@ function zero(target) {
 }
 
 function cross(target) {
-	if (target.classList.contains('main__square-item') && count % 2 !== 0 && (target.children).length === 0) {
-		target.classList.add('main__square-cross')
+	if (target.classList.contains('field__item') && count % 2 !== 0 && (target.children).length === 0) {
+		target.classList.add('field__cross')
 		crossDrawing(target)
 		incrementValue()
 		playDrawingSound()
@@ -44,7 +44,7 @@ function init(e) {
 	showWin()
 }
 
-square.addEventListener('click', init)
+field.addEventListener('click', init)
 
 function showWin() {
 	let comboOfWin = [
@@ -59,33 +59,33 @@ function showWin() {
 	]
 
 	for (let i = 0; i < comboOfWin.length; i++) {
-		if (squareElements[comboOfWin[i][0]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][1]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][2]].classList.contains('main__square-cross')) {
+		if (fieldItems[comboOfWin[i][0]].classList.contains('field__cross') && fieldItems[comboOfWin[i][1]].classList.contains('field__cross') && fieldItems[comboOfWin[i][2]].classList.contains('field__cross')) {
 			setCountValue(0)
-			square.removeEventListener('click', init)
+			field.removeEventListener('click', init)
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
-				squareElements[comboOfWin[i][0]].classList.add('main__square-cross_win')
-				squareElements[comboOfWin[i][1]].classList.add('main__square-cross_win')
-				squareElements[comboOfWin[i][2]].classList.add('main__square-cross_win')
+				fieldItems[comboOfWin[i][0]].classList.add('field__cross_win')
+				fieldItems[comboOfWin[i][1]].classList.add('field__cross_win')
+				fieldItems[comboOfWin[i][2]].classList.add('field__cross_win')
 				crossesScoreElem.textContent = ++crossesScore
 			}, 250)
 		}
-		else if (squareElements[comboOfWin[i][0]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][1]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][2]].classList.contains('main__square-naught')) {
+		else if (fieldItems[comboOfWin[i][0]].classList.contains('field__naught') && fieldItems[comboOfWin[i][1]].classList.contains('field__naught') && fieldItems[comboOfWin[i][2]].classList.contains('field__naught')) {
 			setCountValue(0)
-			square.removeEventListener('click', init)
+			field.removeEventListener('click', init)
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
-				squareElements[comboOfWin[i][0]].classList.add('main__square-naught_win')
-				squareElements[comboOfWin[i][1]].classList.add('main__square-naught_win')
-				squareElements[comboOfWin[i][2]].classList.add('main__square-naught_win')
+				fieldItems[comboOfWin[i][0]].classList.add('field__naught_win')
+				fieldItems[comboOfWin[i][1]].classList.add('field__naught_win')
+				fieldItems[comboOfWin[i][2]].classList.add('field__naught_win')
 
 				naughtsScoreElem.textContent = ++naughtsScore
 			}, 250)
 		}
 		else if (count === 9) {
-			square.removeEventListener('click', init)
+			field.removeEventListener('click', init)
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
@@ -97,11 +97,11 @@ function showWin() {
 
 function newGame() {
 	setCountValue(0)
-	squareElements.forEach(e => {
+	fieldItems.forEach(e => {
 		e.textContent = ''
-		e.classList.remove('main__square-naught', 'main__square-cross', 'main__square-naught_win', 'main__square-cross_win')
+		e.classList.remove('field__naught', 'field__cross', 'field__naught_win', 'field__cross_win')
 	})
-	square.addEventListener('click', init)
+	field.addEventListener('click', init)
 	resCircle.classList.add('res__circle_active')
 	resCross.classList.remove('res__cross_active')
 }

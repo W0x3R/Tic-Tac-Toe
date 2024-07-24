@@ -27,146 +27,146 @@ body {
 	@extend %flexCenter;
 	flex-direction: column;
 	gap: 22px;
+}
 
-	.res {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 10px;
-		width: 100%;
-		user-select: none;
-    pointer-events: none;
-		font-size: clamp(26px, 4vw, 38px);
-		color: white;
+.res {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	width: 100%;
+	user-select: none;
+	pointer-events: none;
+	font-size: clamp(26px, 4vw, 38px);
+	color: white;
 
-		&__circle,&__cross {
-			box-sizing: content-box;
-			@include sizes(40px,40px);
-			padding: 2px;
+	&__circle,&__cross {
+		box-sizing: content-box;
+		@include sizes(40px,40px);
+		padding: 2px;
 
-		@include smallMobile {
-			@include sizes(35px,35px);
-		}
+	@include smallMobile {
+		@include sizes(35px,35px);
+	}
+}
+
+	&__circle_active,&__cross_active {
+		border-radius: 10%;
 	}
 
-		&__circle_active,&__cross_active {
-			border-radius: 10%;
+	&__circle_active {
+		border: 1px solid rgb(228 10 41);
+	}
+
+	&__cross_active {
+		border: 1px solid rgb(15 18 198);
+	}
+	
+	&__score {
+		@extend %flexCenter;
+		flex-direction: column;
+		gap: 5px 2px;
+		font-size: 34px;
+
+		&-inner {
+			display: flex;
 		}
 
-		&__circle_active {
-			border: 1px solid rgb(228 10 41);
-		}
-
-		&__cross_active {
-			border: 1px solid rgb(15 18 198);
-		}
-		
-		&__score {
-			@extend %flexCenter;
-			flex-direction: column;
-			gap: 5px 2px;
-			font-size: 34px;
-
-			&-inner {
-				display: flex;
-			}
-
-			&-text {
-				visibility: hidden;
-				color:white;
-				font-size: 24px;
-
-				@include smallMobile {
-					font-size: 20px;
-				}
-			}
+		&-text {
+			visibility: hidden;
+			color:white;
+			font-size: 24px;
 
 			@include smallMobile {
-				font-size: 28px;
+				font-size: 20px;
 			}
 		}
+
+		@include smallMobile {
+			font-size: 28px;
+		}
+	}
+}
+
+.field {
+	@extend %flexCenter;
+	flex-wrap: wrap;
+	@include sizes(405px, 405px);
+	margin-bottom: 30px;
+	cursor: url('./images/svg/pencil.svg'), pointer;
+
+	@include mobile {
+		@include sizes(355px, 355px);
 	}
 
-	&__square {
+	@include smallMobile {
+		@include sizes(285px, 285px);
+	}
+
+	&__item {
 		@extend %flexCenter;
-		flex-wrap: wrap;
-		@include sizes(405px, 405px);
-		margin-bottom: 30px;
-		cursor: url('./images/svg/pencil.svg'), pointer;
+		@include sizes(135px, 135px);
+		transition: 0.3s;
 
 		@include mobile {
-			@include sizes(355px, 355px);
+			@include sizes(118px, 118px);
 		}
 
 		@include smallMobile {
-			@include sizes(285px, 285px);
+			@include sizes(95px, 95px);
+		}
+		
+		&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
+			border-right:5px solid white;
 		}
 
-		&-item {
-			@extend %flexCenter;
-			@include sizes(135px, 135px);
-			transition: 0.3s;
-
-			@include mobile {
-				@include sizes(118px, 118px);
-			}
-
-			@include smallMobile {
-				@include sizes(95px, 95px);
-			}
-			
-			&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
-				border-right:5px solid white;
-			}
-
-			&:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6) {
-				border-bottom:5px solid white;
-			}
-
-			@include hoverOrActive {
-				background-color: rgb(255 255 255 / 9%);
-			}
-
-			& .animated-circle, .animated-cross{
-				transition: stroke-dashoffset 0.8s;
-			}
+		&:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6) {
+			border-bottom:5px solid white;
 		}
 
-		&-naught,&-cross {
-			cursor: not-allowed;
-
-			@include hoverOrActive {
-				background-color: #12181b;
-			}
+		@include hoverOrActive {
+			background-color: rgb(255 255 255 / 9%);
 		}
-		&-naught_win ,&-cross_win{
-			background-color: rgb(1 58 85 / 62%);
-			animation: changeColor 1.5s infinite;
 
-			@include hoverOrActive {
-				background-color: rgb(1 58 85 / 62%);
-			}
+		& .animated-circle, .animated-cross{
+			transition: stroke-dashoffset 0.8s;
 		}
 	}
 
-	&__button {
-		@include sizes(150px, 40px);
-		border: 2px solid black;
-		border-radius: 5px;
-		transition: 0.3s;
-		font-size: 20px;
-		cursor: pointer;
-		background-color: rgba(255, 255, 255, 0.77);
-		color: black;
-	
-		@include smallMobile {
-			@include sizes(130px, 35px);
-			font-size: 16px;
-		}
-	
+	&__naught,&__cross {
+		cursor: not-allowed;
+
 		@include hoverOrActive {
-			background-color: rgb(255, 255, 255);
+			background-color: #12181b;
 		}
+	}
+	&__naught_win ,&__cross_win{
+		background-color: rgb(1 58 85 / 62%);
+		animation: changeColor 1.5s infinite;
+
+		@include hoverOrActive {
+			background-color: rgb(1 58 85 / 62%);
+		}
+	}
+}
+
+.newgame__button {
+	@include sizes(150px, 40px);
+	border: 2px solid black;
+	border-radius: 5px;
+	transition: 0.3s;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.77);
+	color: black;
+
+	@include smallMobile {
+		@include sizes(130px, 35px);
+		font-size: 16px;
+	}
+
+	@include hoverOrActive {
+		background-color: rgb(255, 255, 255);
 	}
 }
 
