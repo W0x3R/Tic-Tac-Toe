@@ -14,7 +14,7 @@ const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
 const newGameButton = document.querySelector('.newgame__button')
-const resScoreText = document.querySelector('.res__score-text')
+
 
 function zero(target) {
 	if (target.classList.contains('field__item') && count % 2 === 0 && (target.children).length === 0) {
