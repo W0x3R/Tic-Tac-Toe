@@ -4,6 +4,7 @@
 @import './scss/template-selectors';
 @import './scss/result';
 @import './scss/field';
+@import './scss/newGameBtn';
 
 body {
 	background-color: #12181b;
@@ -31,25 +32,6 @@ body {
 	gap: 22px;
 }
 
-.newgame__button {
-	@include sizes(150px, 40px);
-	border: 2px solid black;
-	border-radius: 5px;
-	transition: 0.3s;
-	font-size: 20px;
-	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.77);
-	color: black;
-
-	@include smallMobile {
-		@include sizes(130px, 35px);
-		font-size: 16px;
-	}
-
-	@include hoverOrActive {
-		background-color: rgb(255, 255, 255);
-	}
-}
 
 @keyframes changeColor {
 	0% {
