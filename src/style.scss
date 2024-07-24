@@ -66,14 +66,14 @@ body {
 
 			@include smallMobile {
 				font-size: 30px;
+			}
 		}
-	}
 	}
 
 	&__square {
-		@include flexBox(row, normal, normal, wrap);
+		@include flexBox(row, center, center, wrap);
 		@include width-height(405px, 405px);
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		cursor: url('./images/svg/pencil.svg'), pointer;
 
 		@include mobile {
@@ -96,7 +96,7 @@ body {
 			@include smallMobile {
 				@include width-height(95px, 95px);
 			}
-
+			
 			&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
 				border-right:5px solid white;
 			}
@@ -148,6 +148,7 @@ body {
 	@include hoverOrActive {
 		background-color: rgb(255, 255, 255);
 	}
+
 }
 
 @keyframes changeColor {
@@ -177,5 +178,3 @@ body {
 .animated-cross {
 	transition: stroke-dashoffset 0.8s;
 }
-
-@import './scss/adaptive';
