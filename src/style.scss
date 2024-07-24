@@ -89,6 +89,14 @@ body {
 			@include width-height(135px, 135px);
 			transition: 0.3s;
 
+			@include mobile {
+				@include width-height(118px, 118px);
+			}
+
+			@include smallMobile {
+				@include width-height(95px, 95px);
+			}
+
 			&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
 				border-right:5px solid white;
 			}
