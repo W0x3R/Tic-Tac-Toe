@@ -61,6 +61,8 @@ function showWin() {
 		if (squareElements[comboOfWin[i][0]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][1]].classList.contains('main__square-cross') && squareElements[comboOfWin[i][2]].classList.contains('main__square-cross')) {
 			setCountValue(0)
 			square.removeEventListener('click', init)
+			resCircle.classList.remove('res__circle_active')
+			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-cross_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-cross_win')
@@ -71,6 +73,8 @@ function showWin() {
 		else if (squareElements[comboOfWin[i][0]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][1]].classList.contains('main__square-naught') && squareElements[comboOfWin[i][2]].classList.contains('main__square-naught')) {
 			setCountValue(0)
 			square.removeEventListener('click', init)
+			resCircle.classList.remove('res__circle_active')
+			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
 				squareElements[comboOfWin[i][0]].classList.add('main__square-naught_win')
 				squareElements[comboOfWin[i][1]].classList.add('main__square-naught_win')
@@ -81,6 +85,8 @@ function showWin() {
 		}
 		else if (count === 9) {
 			square.removeEventListener('click', init)
+			resCircle.classList.remove('res__circle_active')
+			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
 				res.textContent = 'GAME DRAW'
 			}, 250)
