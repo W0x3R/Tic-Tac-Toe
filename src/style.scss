@@ -61,7 +61,11 @@ body {
 		
 		&__score {
 			display: flex;
-			gap: 0 3px;
+			gap: 0 2px;
+			font-size: 34px;
+
+			@include smallMobile {
+				font-size: 30px;
 		}
 	}
 
