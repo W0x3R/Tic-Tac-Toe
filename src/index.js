@@ -89,7 +89,7 @@ function showWin() {
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
-				resScoreText.style.display = 'block'
+				resScoreText.style.visibility = 'visible'
 			}, 250)
 		}
 	}
