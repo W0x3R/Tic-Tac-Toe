@@ -14,6 +14,7 @@ const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
 const newGameButton = document.querySelector('.main__button')
+const resScoreText = document.querySelector('.res__score-text')
 
 function zero(target) {
 	if (target.classList.contains('main__square-item') && count % 2 === 0 && (target.children).length === 0) {
@@ -88,7 +89,7 @@ function showWin() {
 			resCircle.classList.remove('res__circle_active')
 			resCross.classList.remove('res__cross_active')
 			setTimeout(() => {
-				res.textContent = 'GAME DRAW'
+				resScoreText.style.display = 'block'
 			}, 250)
 		}
 	}
