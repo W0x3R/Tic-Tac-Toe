@@ -1,8 +1,8 @@
 .field {
 	@extend %flexCenter;
 	flex-wrap: wrap;
-	@include sizes(405px, 405px);
 	margin-bottom: 30px;
+	@include sizes(405px, 405px);
 	cursor: url('./images/svg/pencil.svg'), pointer;
 
 	@include mobile {

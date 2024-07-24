@@ -11,8 +11,8 @@
 
 	&__circle,&__cross {
 		box-sizing: content-box;
-		@include sizes(40px,40px);
 		padding: 2px;
+		@include sizes(40px,40px);
 
 	@include smallMobile {
 		@include sizes(35px,35px);

@@ -13,7 +13,6 @@ $smallMobile: 450px;
 	}
 }
 
-
 @mixin hoverOrActive {
 	@media (hover: hover) {
 		&:hover {

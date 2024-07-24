@@ -8,10 +8,10 @@ body {
 .container {
 	@extend %flexCenter;
 	flex-direction: column;
-	max-width: 1920px;
-	min-height: 100%;
 	margin: 0 auto;
 	padding: 20px 10px;
+	max-width: 1920px;
+	min-height: 100%;
 
 	@include smallMobile {
 		padding: 10px 5px;
