@@ -3,6 +3,7 @@
 @import './scss/media';
 @import './scss/template-selectors';
 @import './scss/result';
+@import './scss/field';
 
 body {
 	background-color: #12181b;
@@ -28,68 +29,6 @@ body {
 	@extend %flexCenter;
 	flex-direction: column;
 	gap: 22px;
-}
-
-.field {
-	@extend %flexCenter;
-	flex-wrap: wrap;
-	@include sizes(405px, 405px);
-	margin-bottom: 30px;
-	cursor: url('./images/svg/pencil.svg'), pointer;
-
-	@include mobile {
-		@include sizes(355px, 355px);
-	}
-
-	@include smallMobile {
-		@include sizes(285px, 285px);
-	}
-
-	&__item {
-		@extend %flexCenter;
-		@include sizes(135px, 135px);
-		transition: 0.3s;
-
-		@include mobile {
-			@include sizes(118px, 118px);
-		}
-
-		@include smallMobile {
-			@include sizes(95px, 95px);
-		}
-		
-		&:nth-child(1),&:nth-child(2),&:nth-child(4),&:nth-child(5),&:nth-child(7),&:nth-child(8) {
-			border-right:5px solid white;
-		}
-
-		&:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6) {
-			border-bottom:5px solid white;
-		}
-
-		@include hoverOrActive {
-			background-color: rgb(255 255 255 / 9%);
-		}
-
-		& .animated-circle, .animated-cross{
-			transition: stroke-dashoffset 0.8s;
-		}
-	}
-
-	&__naught,&__cross {
-		cursor: not-allowed;
-
-		@include hoverOrActive {
-			background-color: #12181b;
-		}
-	}
-	&__naught_win ,&__cross_win{
-		background-color: rgb(1 58 85 / 62%);
-		animation: changeColor 1.5s infinite;
-
-		@include hoverOrActive {
-			background-color: rgb(1 58 85 / 62%);
-		}
-	}
 }
 
 .newgame__button {
