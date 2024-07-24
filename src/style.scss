@@ -73,7 +73,11 @@ body {
 			&-text {
 				visibility: hidden;
 				color:white;
-				font-size: 28px;
+				font-size: 24px;
+
+				@include smallMobile {
+					font-size: 20px;
+				}
 			}
 
 			@include smallMobile {
