@@ -68,12 +68,21 @@ body {
 				font-size: 30px;
 		}
 	}
+	}
 
 	&__square {
 		@include flexBox(row, normal, normal, wrap);
 		@include width-height(405px, 405px);
 		margin-bottom: 20px;
 		cursor: url('./images/svg/pencil.svg'), pointer;
+
+		@include mobile {
+			@include width-height(355px, 355px);
+		}
+
+		@include smallMobile {
+			@include width-height(285px, 285px);
+		}
 
 		&-item {
 			@include flexBox(row, center, center);
