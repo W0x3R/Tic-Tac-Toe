@@ -39,6 +39,12 @@ body {
 			height: 40px;
 			padding: 2px;
     box-sizing: content-box;
+
+		@include smallMobile {
+			width: 35px;
+			height: 35px;
+		}
+
 		}
 
 		&__circle_active,&__cross_active {
