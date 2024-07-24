@@ -2,35 +2,10 @@
 @import './scss/mixins';
 @import './scss/media';
 @import './scss/template-selectors';
+@import './scss/mainBlocks';
 @import './scss/result';
 @import './scss/field';
 @import './scss/newGameBtn';
-
-body {
-	background-color: #12181b;
-	height: 100%;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-tap-highlight-color: transparent;
-}
-
-.container {
-	@extend %flexCenter;
-	flex-direction: column;
-	max-width: 1920px;
-	min-height: 100%;
-	margin: 0 auto;
-	padding: 20px 10px;
-
-	@include smallMobile {
-		padding: 10px 5px;
-	}
-}
-
-.main {
-	@extend %flexCenter;
-	flex-direction: column;
-	gap: 22px;
-}
 
 
 @keyframes changeColor {
