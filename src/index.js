@@ -1,5 +1,5 @@
-import { circleDrawing } from './js/figureDrawing/circleDrawing';
-import { crossDrawing } from './js/figureDrawing/crossDrawing';
+import { drawingCircle } from './js/figureDrawing/drawingCircle';
+import { drawingCross } from './js/figureDrawing/drawingCross';
 import { playDrawingSound } from './js/playDrawingSound';
 import { setActivePlayerStyles } from './js/setActivePlayerStyles';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
@@ -15,29 +15,16 @@ let naughtsScore = 0;
 let crossesScore = 0;
 const newGameButton = document.querySelector('.newgame__button')
 
-function zero(target) {
-	if (target.classList.contains('field__item') && count % 2 === 0 && (target.children).length === 0) {
-		target.classList.add('field__naught')
-		circleDrawing(target)
-		incrementValue()
+const drawFigure = (target) => {
+	if (target.classList.contains('field__item') && (target.children).length === 0) {
+		count % 2 === 0 ? drawingCircle(target) : drawingCross(target)
 		playDrawingSound()
-		setActivePlayerStyles('remove', 'add')
-	}
-}
-
-function cross(target) {
-	if (target.classList.contains('field__item') && count % 2 !== 0 && (target.children).length === 0) {
-		target.classList.add('field__cross')
-		crossDrawing(target)
 		incrementValue()
-		playDrawingSound()
-		setActivePlayerStyles('add', 'remove')
 	}
 }
 
 function init(e) {
-	cross(e.target)
-	zero(e.target)
+	drawFigure(e.target)
 	showWin()
 }
 
