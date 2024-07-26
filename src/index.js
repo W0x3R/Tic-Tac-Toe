@@ -17,9 +17,7 @@ let crossesScore = 0;
 
 window.addEventListener('click', (e) => callEvents(e, clickEvents))
 
-field.addEventListener('click', init)
-
-function showWin() {
+export function showWin() {
 	checkWinner('field__cross', crossesScoreElem, crossesScore, 'xWin')
 	checkWinner('field__naught', naughtsScoreElem, naughtsScore, 'oWin')
 	checkGameDraw()
@@ -35,5 +33,3 @@ function newGame() {
 	setActivePlayerStyles('add', 'remove')
 	setResultTextVisibility('remove')
 }
-
-newGameButton.addEventListener('click', newGame)
