@@ -9,13 +9,11 @@ import { setActivePlayerStyles } from './js/setActivePlayerStyles';
 import { setCountValue } from './js/setCountValue';
 import { setResultTextVisibility } from './js/setResultTextVisibility';
 
-export const field = document.querySelector('.field');
 export const fieldItems = document.querySelectorAll('.field__item')
 const naughtsScoreElem = document.querySelector('.res__score-naughts')
 const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
-const newGameButton = document.querySelector('.newgame__button')
 
 export function init(e) {
 	choosingDrawingFigure(e.target)
