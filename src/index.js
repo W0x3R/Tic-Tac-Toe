@@ -23,13 +23,13 @@ export function showWin() {
 	checkGameDraw()
 }
 
-function newGame() {
+export function newGame() {
 	setCountValue(0)
 	fieldItems.forEach(e => {
 		e.textContent = ''
 		e.classList.remove('field__naught', 'field__cross', 'field__naught_win', 'field__cross_win')
 	})
-	field.addEventListener('click', init)
+	controllingAbilityFieldClick('remove')
 	setActivePlayerStyles('add', 'remove')
 	setResultTextVisibility('remove')
 }
