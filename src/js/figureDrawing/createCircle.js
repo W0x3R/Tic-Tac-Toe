@@ -1,4 +1,4 @@
-export const circleDrawing = (target) => {
+export const createCircle = (target) => {
 	const svgNS = "http://www.w3.org/2000/svg";
 
 	const svg = document.createElementNS(svgNS, "svg");
