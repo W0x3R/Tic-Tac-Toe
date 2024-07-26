@@ -15,10 +15,7 @@ const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
 
-export function init(e) {
-	choosingDrawingFigure(e.target)
-	showWin()
-}
+window.addEventListener('click', (e) => callEvents(e, clickEvents))
 
 field.addEventListener('click', init)
 
