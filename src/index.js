@@ -1,3 +1,5 @@
+import { checkGameDraw } from './js/checkGameDraw';
+import { checkWinner } from './js/checkWinner';
 import { choosingDrawingFigure } from './js/figureDrawing/choosingDrawingFigure';
 import { setActivePlayerStyles } from './js/setActivePlayerStyles';
 import { count, setCountValue } from './js/setCountValue';
@@ -6,15 +8,15 @@ import { setResultTextVisibility } from './js/setResultTextVisibility';
 import { winCombo } from './js/winCombo';
 import './style.scss';
 
-const field = document.querySelector('.field');
-const fieldItems = document.querySelectorAll('.field__item')
+export const field = document.querySelector('.field');
+export const fieldItems = document.querySelectorAll('.field__item')
 const naughtsScoreElem = document.querySelector('.res__score-naughts')
 const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
 const newGameButton = document.querySelector('.newgame__button')
 
-function init(e) {
+export function init(e) {
 	choosingDrawingFigure(e.target)
 	showWin()
 }
@@ -22,40 +24,9 @@ function init(e) {
 field.addEventListener('click', init)
 
 function showWin() {
-
-	for (let i = 0; i < winCombo.length; i++) {
-		if (fieldItems[winCombo[i][0]].classList.contains('field__cross') && fieldItems[winCombo[i][1]].classList.contains('field__cross') && fieldItems[winCombo[i][2]].classList.contains('field__cross')) {
-			setCountValue(0)
-			field.removeEventListener('click', init)
-			setActivePlayerStyles('remove', 'remove')
-			setTimeout(() => {
-				fieldItems[winCombo[i][0]].classList.add('field__cross_win')
-				fieldItems[winCombo[i][1]].classList.add('field__cross_win')
-				fieldItems[winCombo[i][2]].classList.add('field__cross_win')
-				crossesScoreElem.textContent = ++crossesScore
-				setResultText('xWin')
-			}, 250)
-		}
-		else if (fieldItems[winCombo[i][0]].classList.contains('field__naught') && fieldItems[winCombo[i][1]].classList.contains('field__naught') && fieldItems[winCombo[i][2]].classList.contains('field__naught')) {
-			setCountValue(0)
-			field.removeEventListener('click', init)
-			setActivePlayerStyles('remove', 'remove')
-			setTimeout(() => {
-				fieldItems[winCombo[i][0]].classList.add('field__naught_win')
-				fieldItems[winCombo[i][1]].classList.add('field__naught_win')
-				fieldItems[winCombo[i][2]].classList.add('field__naught_win')
-				setResultText('oWin')
-				naughtsScoreElem.textContent = ++naughtsScore
-			}, 250)
-		}
-		else if (count === 9) {
-			field.removeEventListener('click', init)
-			setActivePlayerStyles('remove', 'remove')
-			setTimeout(() => {
-				setResultText('draw')
-			}, 250)
-		}
-	}
+	checkWinner('field__cross', crossesScoreElem, crossesScore, 'xWin')
+	checkWinner('field__naught', naughtsScoreElem, naughtsScore, 'oWin')
+	checkGameDraw()
 }
 
 function newGame() {
