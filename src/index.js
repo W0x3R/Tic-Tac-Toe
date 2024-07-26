@@ -1,12 +1,13 @@
+import './style.scss';
 import { checkGameDraw } from './js/checkGameDraw';
 import { checkWinner } from './js/checkWinner';
+import { controllingAbilityFieldClick } from './js/controllingAbilityFieldClick';
+import { callEvents } from './js/eventHandlers/callEvents';
+import { clickEvents } from './js/eventHandlers/clickEvents';
 import { choosingDrawingFigure } from './js/figureDrawing/choosingDrawingFigure';
 import { setActivePlayerStyles } from './js/setActivePlayerStyles';
-import { count, setCountValue } from './js/setCountValue';
-import { setResultText } from './js/setResultText';
+import { setCountValue } from './js/setCountValue';
 import { setResultTextVisibility } from './js/setResultTextVisibility';
-import { winCombo } from './js/winCombo';
-import './style.scss';
 
 export const field = document.querySelector('.field');
 export const fieldItems = document.querySelectorAll('.field__item')
