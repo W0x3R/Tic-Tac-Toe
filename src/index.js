@@ -1,6 +1,7 @@
 import { circleDrawing } from './js/figureDrawing/circleDrawing';
 import { crossDrawing } from './js/figureDrawing/crossDrawing';
 import { playDrawingSound } from './js/playDrawingSound';
+import { setActivePlayerStyles } from './js/setActivePlayerStyles';
 import { count, setCountValue, incrementValue } from './js/setCountValue';
 import { setResultText } from './js/setResultText';
 import { setResultTextVisibility } from './js/setResultTextVisibility';
@@ -8,15 +9,11 @@ import './style.scss';
 
 const field = document.querySelector('.field');
 const fieldItems = document.querySelectorAll('.field__item')
-const res = document.querySelector('.res')
-const resCircle = document.querySelector('.res__circle')
-const resCross = document.querySelector('.res__cross')
 const naughtsScoreElem = document.querySelector('.res__score-naughts')
 const crossesScoreElem = document.querySelector('.res__score-crosses')
 let naughtsScore = 0;
 let crossesScore = 0;
 const newGameButton = document.querySelector('.newgame__button')
-
 
 function zero(target) {
 	if (target.classList.contains('field__item') && count % 2 === 0 && (target.children).length === 0) {
@@ -24,8 +21,7 @@ function zero(target) {
 		circleDrawing(target)
 		incrementValue()
 		playDrawingSound()
-		resCircle.classList.remove('res__circle_active')
-		resCross.classList.add('res__cross_active')
+		setActivePlayerStyles('remove', 'add')
 	}
 }
 
@@ -35,8 +31,7 @@ function cross(target) {
 		crossDrawing(target)
 		incrementValue()
 		playDrawingSound()
-		resCircle.classList.add('res__circle_active')
-		resCross.classList.remove('res__cross_active')
+		setActivePlayerStyles('add', 'remove')
 	}
 }
 
@@ -64,8 +59,7 @@ function showWin() {
 		if (fieldItems[comboOfWin[i][0]].classList.contains('field__cross') && fieldItems[comboOfWin[i][1]].classList.contains('field__cross') && fieldItems[comboOfWin[i][2]].classList.contains('field__cross')) {
 			setCountValue(0)
 			field.removeEventListener('click', init)
-			resCircle.classList.remove('res__circle_active')
-			resCross.classList.remove('res__cross_active')
+			setActivePlayerStyles('remove', 'remove')
 			setTimeout(() => {
 				fieldItems[comboOfWin[i][0]].classList.add('field__cross_win')
 				fieldItems[comboOfWin[i][1]].classList.add('field__cross_win')
@@ -77,8 +71,7 @@ function showWin() {
 		else if (fieldItems[comboOfWin[i][0]].classList.contains('field__naught') && fieldItems[comboOfWin[i][1]].classList.contains('field__naught') && fieldItems[comboOfWin[i][2]].classList.contains('field__naught')) {
 			setCountValue(0)
 			field.removeEventListener('click', init)
-			resCircle.classList.remove('res__circle_active')
-			resCross.classList.remove('res__cross_active')
+			setActivePlayerStyles('remove', 'remove')
 			setTimeout(() => {
 				fieldItems[comboOfWin[i][0]].classList.add('field__naught_win')
 				fieldItems[comboOfWin[i][1]].classList.add('field__naught_win')
@@ -89,8 +82,7 @@ function showWin() {
 		}
 		else if (count === 9) {
 			field.removeEventListener('click', init)
-			resCircle.classList.remove('res__circle_active')
-			resCross.classList.remove('res__cross_active')
+			setActivePlayerStyles('remove', 'remove')
 			setTimeout(() => {
 				setResultText('draw')
 			}, 250)
@@ -105,8 +97,7 @@ function newGame() {
 		e.classList.remove('field__naught', 'field__cross', 'field__naught_win', 'field__cross_win')
 	})
 	field.addEventListener('click', init)
-	resCircle.classList.add('res__circle_active')
-	resCross.classList.remove('res__cross_active')
+	setActivePlayerStyles('add', 'remove')
 	setResultTextVisibility('remove')
 }
 
