@@ -3,6 +3,7 @@ import { setActivePlayerStyles } from './js/setActivePlayerStyles';
 import { count, setCountValue } from './js/setCountValue';
 import { setResultText } from './js/setResultText';
 import { setResultTextVisibility } from './js/setResultTextVisibility';
+import { winCombo } from './js/winCombo';
 import './style.scss';
 
 const field = document.querySelector('.field');
@@ -21,38 +22,28 @@ function init(e) {
 field.addEventListener('click', init)
 
 function showWin() {
-	let comboOfWin = [
-		[0, 1, 2],
-		[3, 4, 5],
-		[6, 7, 8],
-		[0, 3, 6],
-		[1, 4, 7],
-		[2, 5, 8],
-		[0, 4, 8],
-		[2, 4, 6],
-	]
 
-	for (let i = 0; i < comboOfWin.length; i++) {
-		if (fieldItems[comboOfWin[i][0]].classList.contains('field__cross') && fieldItems[comboOfWin[i][1]].classList.contains('field__cross') && fieldItems[comboOfWin[i][2]].classList.contains('field__cross')) {
+	for (let i = 0; i < winCombo.length; i++) {
+		if (fieldItems[winCombo[i][0]].classList.contains('field__cross') && fieldItems[winCombo[i][1]].classList.contains('field__cross') && fieldItems[winCombo[i][2]].classList.contains('field__cross')) {
 			setCountValue(0)
 			field.removeEventListener('click', init)
 			setActivePlayerStyles('remove', 'remove')
 			setTimeout(() => {
-				fieldItems[comboOfWin[i][0]].classList.add('field__cross_win')
-				fieldItems[comboOfWin[i][1]].classList.add('field__cross_win')
-				fieldItems[comboOfWin[i][2]].classList.add('field__cross_win')
+				fieldItems[winCombo[i][0]].classList.add('field__cross_win')
+				fieldItems[winCombo[i][1]].classList.add('field__cross_win')
+				fieldItems[winCombo[i][2]].classList.add('field__cross_win')
 				crossesScoreElem.textContent = ++crossesScore
 				setResultText('xWin')
 			}, 250)
 		}
-		else if (fieldItems[comboOfWin[i][0]].classList.contains('field__naught') && fieldItems[comboOfWin[i][1]].classList.contains('field__naught') && fieldItems[comboOfWin[i][2]].classList.contains('field__naught')) {
+		else if (fieldItems[winCombo[i][0]].classList.contains('field__naught') && fieldItems[winCombo[i][1]].classList.contains('field__naught') && fieldItems[winCombo[i][2]].classList.contains('field__naught')) {
 			setCountValue(0)
 			field.removeEventListener('click', init)
 			setActivePlayerStyles('remove', 'remove')
 			setTimeout(() => {
-				fieldItems[comboOfWin[i][0]].classList.add('field__naught_win')
-				fieldItems[comboOfWin[i][1]].classList.add('field__naught_win')
-				fieldItems[comboOfWin[i][2]].classList.add('field__naught_win')
+				fieldItems[winCombo[i][0]].classList.add('field__naught_win')
+				fieldItems[winCombo[i][1]].classList.add('field__naught_win')
+				fieldItems[winCombo[i][2]].classList.add('field__naught_win')
 				setResultText('oWin')
 				naughtsScoreElem.textContent = ++naughtsScore
 			}, 250)
