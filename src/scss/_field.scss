@@ -72,6 +72,10 @@
 		@include hoverOrActive {
 			background-color: #12181b;
 		}
+
+		&_disabled {
+			pointer-events: none;
+		}
 	}
 
 	&__naught_win,
