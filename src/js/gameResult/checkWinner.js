@@ -4,6 +4,7 @@ import { setActivePlayerStyles } from "../setActivePlayerStyles"
 import { setCountValue } from "./setCountValue"
 import { setResultText } from "./setResultText"
 import { winCombo } from "./winCombo"
+import { setGameFinished } from "./setGameFinished"
 
 let naughtsScore = 0;
 let crossesScore = 0;
@@ -14,6 +15,7 @@ export const checkWinner = (classList, winElem, winText) => {
 			setCountValue(0)
 			controllingAbilityFieldClick('add')
 			setActivePlayerStyles('remove', 'remove')
+			setGameFinished(true)
 			setTimeout(() => {
 				fieldItems[winCombo[i][0]].classList.add(`${classList}_win`)
 				fieldItems[winCombo[i][1]].classList.add(`${classList}_win`)
