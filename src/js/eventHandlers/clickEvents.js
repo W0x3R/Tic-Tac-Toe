@@ -1,10 +1,11 @@
-import { newGame, showWin } from "../.."
+import { newGame } from "../.."
 import { choosingDrawingFigure } from "../figureDrawing/choosingDrawingFigure"
+import { showGameResult } from "../showGameResult"
 
 export const clickEvents = {
 	'.field': (e) => {
 		choosingDrawingFigure(e.target)
-		showWin()
+		showGameResult()
 	},
 	'.newgame__button': newGame
 }
