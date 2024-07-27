@@ -1,4 +1,4 @@
-import { fieldItems } from ".."
+import { fieldItems } from "./resetFieldClasses"
 import { controllingAbilityFieldClick } from "./controllingAbilityFieldClick"
 import { setActivePlayerStyles } from "./setActivePlayerStyles"
 import { setCountValue } from "./setCountValue"

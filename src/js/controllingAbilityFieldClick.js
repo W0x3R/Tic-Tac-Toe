@@ -1,4 +1,4 @@
-import { fieldItems } from "..";
+import { fieldItems } from "./resetFieldClasses";
 
 export const controllingAbilityFieldClick = (value) => {
 	fieldItems.forEach(e => {
