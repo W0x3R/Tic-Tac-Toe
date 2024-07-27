@@ -10,10 +10,6 @@ import { setCountValue } from './js/setCountValue';
 import { setResultTextVisibility } from './js/setResultTextVisibility';
 
 export const fieldItems = document.querySelectorAll('.field__item')
-const naughtsScoreElem = document.querySelector('.res__score-naughts')
-const crossesScoreElem = document.querySelector('.res__score-crosses')
-let naughtsScore = 0;
-let crossesScore = 0;
 
 window.addEventListener('click', (e) => callEvents(e, clickEvents))
 
