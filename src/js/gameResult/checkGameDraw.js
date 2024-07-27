@@ -1,5 +1,5 @@
-import { controllingAbilityFieldClick } from "./controllingAbilityFieldClick"
-import { setActivePlayerStyles } from "./setActivePlayerStyles"
+import { controllingAbilityFieldClick } from "../field/controllingAbilityFieldClick"
+import { setActivePlayerStyles } from "../setActivePlayerStyles"
 import { count } from "./setCountValue"
 import { setResultText } from "./setResultText"
 

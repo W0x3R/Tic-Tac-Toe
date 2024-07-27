@@ -1,8 +1,8 @@
-import { controllingAbilityFieldClick } from "./controllingAbilityFieldClick"
-import { resetFieldClasses } from "./resetFieldClasses"
+import { controllingAbilityFieldClick } from "./field/controllingAbilityFieldClick"
+import { resetFieldClasses } from "./field/resetFieldClasses"
 import { setActivePlayerStyles } from "./setActivePlayerStyles"
-import { setCountValue } from "./setCountValue"
-import { setResultTextVisibility } from "./setResultTextVisibility"
+import { setCountValue } from "./gameResult/setCountValue"
+import { setResultTextVisibility } from "./gameResult/setResultTextVisibility"
 
 export const newGame = () => {
 	setCountValue(0)

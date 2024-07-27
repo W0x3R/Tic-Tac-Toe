@@ -1,5 +1,5 @@
 import { playDrawingSound } from "../playDrawingSound"
-import { count, incrementValue } from "../setCountValue"
+import { count, incrementValue } from "../gameResult/setCountValue"
 import { drawingCircle } from "./drawingCircle"
 import { drawingCross } from "./drawingCross"
 
