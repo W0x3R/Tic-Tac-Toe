@@ -1,5 +1,5 @@
 import { resultText } from "./resultText";
-import { setResultTextVisibility } from "./setResultTextVisibility";
+import { setResultTextVisibility } from "../setResultTextVisibility";
 
 export const resScoreText = document.querySelector('.res__score-text')
 

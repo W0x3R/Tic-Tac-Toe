@@ -1,7 +1,7 @@
 import { controllingAbilityFieldClick } from "../field/controllingAbilityFieldClick"
 import { setActivePlayerStyles } from "../setActivePlayerStyles"
 import { count } from "./setCountValue"
-import { setResultText } from "./setResultText"
+import { setResultText } from "./text/setResultText"
 
 export const checkGameDraw = () => {
 	if (count === 9) {

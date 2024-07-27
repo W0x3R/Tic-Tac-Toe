@@ -2,7 +2,7 @@ import { fieldItems } from "../field/resetFieldClasses"
 import { controllingAbilityFieldClick } from "../field/controllingAbilityFieldClick"
 import { setActivePlayerStyles } from "../setActivePlayerStyles"
 import { setCountValue } from "./setCountValue"
-import { setResultText } from "./setResultText"
+import { setResultText } from "./text/setResultText"
 import { winCombo } from "./winCombo"
 import { setGameFinished } from "./setGameFinished"
 
