@@ -1,5 +1,8 @@
+@use './mixins.scss';
+@use './media.scss';
+
 .newgame__button {
-	@include sizes(150px, 40px);
+	@include mixins.sizes(150px, 40px);
 	border: 2px solid black;
 	border-radius: 5px;
 	font-size: 20px;
@@ -9,12 +12,12 @@
 	color: black;
 	font-weight: 600;
 
-	@include smallMobile {
-		@include sizes(130px, 35px);
+	@include media.smallMobile {
+		@include mixins.sizes(130px, 35px);
 		font-size: 16px;
 	}
 
-	@include hoverOrActive {
+	@include media.hoverOrActive {
 		background-color: rgb(255, 255, 255);
 	}
 }

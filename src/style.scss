@@ -1,10 +1,7 @@
-@import './scss/normalize';
-@import './scss/fonts';
-@import './scss/mixins';
-@import './scss/media';
-@import './scss/template-selectors';
-@import './scss/keyFrames';
-@import './scss/mainBlocks';
-@import './scss/result';
-@import './scss/field';
-@import './scss/newGameBtn';
+@use './scss/normalize';
+@use './scss/fonts';
+@use './scss/keyFrames';
+@use './scss/mainBlocks';
+@use './scss/result';
+@use './scss/field';
+@use './scss/newGameBtn';

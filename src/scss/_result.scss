@@ -1,3 +1,7 @@
+@use './mixins.scss';
+@use './media.scss';
+@use './_template-selectors.scss';
+
 .res {
 	display: flex;
 	align-items: center;
@@ -9,17 +13,19 @@
 	font-size: clamp(26px, 4vw, 38px);
 	color: white;
 
-	&__circle,&__cross {
+	&__circle,
+	&__cross {
 		box-sizing: content-box;
 		padding: 2px;
-		@include sizes(40px,40px);
+		@include mixins.sizes(40px, 40px);
 
-	@include smallMobile {
-		@include sizes(35px,35px);
+		@include media.smallMobile {
+			@include mixins.sizes(35px, 35px);
+		}
 	}
-}
 
-	&__circle_active,&__cross_active {
+	&__circle_active,
+	&__cross_active {
 		border-radius: 10%;
 	}
 
@@ -30,7 +36,7 @@
 	&__cross_active {
 		border: 1px solid rgb(15 18 198);
 	}
-	
+
 	&__score {
 		@extend %flexCenter;
 		flex-direction: column;
@@ -40,7 +46,7 @@
 			display: flex;
 			font-size: 32px;
 
-			@include smallMobile {
+			@include media.smallMobile {
 				font-size: 28px;
 			}
 		}
@@ -48,14 +54,14 @@
 		&-text {
 			visibility: hidden;
 			height: 30px;
-			color:white;
+			color: white;
 			font-size: 24px;
 
 			&_show {
 				visibility: visible;
 			}
 
-			@include smallMobile {
+			@include media.smallMobile {
 				height: 24px;
 				font-size: 20px;
 			}

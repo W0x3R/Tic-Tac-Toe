@@ -1,40 +1,43 @@
+@use './media.scss';
+@use './mixins.scss';
+@use './_template-selectors.scss';
+
 .field {
 	@extend %flexCenter;
 	flex-wrap: wrap;
 	margin-bottom: 30px;
-	@include sizes(405px, 405px);
+	@include mixins.sizes(405px, 405px);
 	cursor: url('./images/svg/pencil.svg'), pointer;
 
-	@include mobile {
-		@include sizes(355px, 355px);
+	@include media.mobile {
+		@include mixins.sizes(355px, 355px);
 	}
 
-	@include smallMobile {
-		@include sizes(285px, 285px);
+	@include media.smallMobile {
+		@include mixins.sizes(285px, 285px);
 	}
 
 	&__item {
 		@extend %flexCenter;
-		@include sizes(135px, 135px);
+		@include mixins.sizes(135px, 135px);
 		transition: 0.3s;
 
 		& svg {
-			@include mobile {
-				width: 80px;
-				height: 80px;
+			@include media.mobile {
+				@include mixins.sizes(80px, 80px);
 			}
 
-			@include smallMobile {
-				@include sizes(70px, 70px);
+			@include media.smallMobile {
+				@include mixins.sizes(70px, 70px);
 			}
 		}
 
-		@include mobile {
-			@include sizes(118px, 118px);
+		@include media.mobile {
+			@include mixins.sizes(118px, 118px);
 		}
 
-		@include smallMobile {
-			@include sizes(95px, 95px);
+		@include media.smallMobile {
+			@include mixins.sizes(95px, 95px);
 		}
 
 		&:nth-child(1),
@@ -50,7 +53,7 @@
 			border-bottom: 5px solid white;
 		}
 
-		@include hoverOrActive {
+		@include media.hoverOrActive {
 			background-color: rgb(255 255 255 / 9%);
 		}
 
@@ -64,7 +67,7 @@
 	&__cross {
 		cursor: not-allowed;
 
-		@include hoverOrActive {
+		@include media.hoverOrActive {
 			background-color: #12181b;
 		}
 
@@ -78,7 +81,7 @@
 		background-color: rgb(1 58 85 / 62%);
 		animation: changeColor 1.5s infinite;
 
-		@include hoverOrActive {
+		@include media.hoverOrActive {
 			background-color: rgb(1 58 85 / 62%);
 		}
 	}

@@ -1,9 +1,13 @@
+@use './mixins.scss';
+@use './media.scss';
+@use './_template-selectors.scss';
+
 body {
 	background-color: #12181b;
 	height: 100%;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-tap-highlight-color: transparent;
-  font-family: "Exo";
+	font-family: "Exo";
 }
 
 .container {
@@ -14,7 +18,7 @@ body {
 	max-width: 1920px;
 	min-height: 100%;
 
-	@include smallMobile {
+	@include media.smallMobile {
 		padding: 10px 5px;
 	}
 }
